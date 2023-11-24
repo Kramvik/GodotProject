@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o3n2lkm0vnym"
+path="res://.godot/imported/WEAPSwrd_Epee (ID 0129)_LS.mp3-df963d14e8909f5b5389832791edaac2.mp3str"
+
+[deps]
+
+source_file="res://WEAPSwrd_Epee (ID 0129)_LS.mp3"
+dest_files=["res://.godot/imported/WEAPSwrd_Epee (ID 0129)_LS.mp3-df963d14e8909f5b5389832791edaac2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

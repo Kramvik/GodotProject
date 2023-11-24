@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cemfxfyb2g53u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q84nr"]
+albedo_color = Color(1, 0.431373, 0.388235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xqr6r"]
+
+[sub_resource type="Animation" id="Animation_feyqu"]
+resource_name = "ouvrir"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_843af"]
+_data = {
+"ouvrir": SubResource("Animation_feyqu")
+}
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_jcf3d"]
+xfade_time = 2.0
+input_0/name = "false"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "true"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1lvh"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4omip"]
+graph_offset = Vector2(210.315, 62.039)
+nodes/closed/node = SubResource("AnimationNodeTransition_jcf3d")
+nodes/closed/position = Vector2(620, 80)
+nodes/output/position = Vector2(900, 100)
+nodes/remain_closed/node = SubResource("AnimationNodeAnimation_b1lvh")
+nodes/remain_closed/position = Vector2(400, 60)
+node_connections = [&"output", 0, &"closed", &"closed", 0, &"remain_closed"]
+
+[node name="Coffre" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94, 0, 0, 0, 0.775, 0, 0, 0, 2.265, 0, 0.441513, 0)
+material_override = SubResource("StandardMaterial3D_q84nr")
+mesh = SubResource("BoxMesh_xqr6r")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94, 0, 0, 0, 0.21, 0, 0, 0, 2.265, 0, 0.93027, 0)
+material_override = SubResource("StandardMaterial3D_q84nr")
+mesh = SubResource("BoxMesh_xqr6r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_843af")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_4omip")
+anim_player = NodePath("../AnimationPlayer")
+parameters/closed/current_state = ""
+parameters/closed/transition_request = ""
+parameters/closed/current_index = -1

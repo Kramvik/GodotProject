@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://bphb7m2kc83t5"]
+
+[ext_resource type="Script" path="res://mobs.gd" id="1_ic0hx"]
+[ext_resource type="Script" path="res://mob.gd" id="1_rsx5u"]
+[ext_resource type="PackedScene" uid="uid://74etgkkiphrs" path="res://health_bar_3d.tscn" id="3_pu2yg"]
+[ext_resource type="AudioStream" uid="uid://b0g20jiugi42y" path="res://Angry Orc - QuickSounds.com.mp3" id="4_n4388"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_daa6i"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqpce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13upb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lxsn0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6gwh"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ahduk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g5ud"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn7kk"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j8txu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7osk1"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dxixt"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xkh8w"]
+viewport_path = NodePath("Area3D/SubViewport")
+
+[node name="Mob" type="CharacterBody3D"]
+script = ExtResource("1_rsx5u")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(52.985, 0, 0, 0, 30.47, 0, 0, 0, 61.555, 0, 0.844965, 0)
+script = ExtResource("1_ic0hx")
+
+[node name="Corps" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.00792638, 0, -7.85805e-05, 0, 0.0206761, 0, 6.76402e-05, 0, 0.00682282, 0, 0.0188617, 0)
+material_override = SubResource("StandardMaterial3D_daa6i")
+mesh = SubResource("BoxMesh_pqpce")
+skeleton = NodePath("")
+
+[node name="Tête" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.00707748, 0, 0, 0, 0.0123072, 0, 0, 0, 0.00609211, 0, 0.0342558, 0)
+material_override = SubResource("StandardMaterial3D_13upb")
+mesh = SubResource("SphereMesh_lxsn0")
+skeleton = NodePath("")
+
+[node name="JambeG" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.000179975, 0, 0.00396237, 0, 0.0229734, 0, -0.00682141, 0, 7.74592e-05, -0.00196271, -0.00279852, -6.59384e-05)
+material_override = SubResource("StandardMaterial3D_b6gwh")
+mesh = SubResource("BoxMesh_ahduk")
+skeleton = NodePath("")
+
+[node name="JambeD" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.000160334, 0, 0.00396257, 0, 0.0229734, 0, -0.00682177, 0, 6.90059e-05, 0.00193338, -0.00279557, -3.65636e-05)
+material_override = SubResource("StandardMaterial3D_2g5ud")
+mesh = SubResource("BoxMesh_ahduk")
+skeleton = NodePath("")
+
+[node name="BrasD" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.00377465, 0, 0, 0, 0.0137841, 0, 0, 0, 0.00324913, 0.00561533, 0.0222755, -7.3499e-05)
+material_override = SubResource("StandardMaterial3D_mn7kk")
+mesh = SubResource("BoxMesh_j8txu")
+skeleton = NodePath("")
+
+[node name="BrasG" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.00377465, 0, 0, 0, 0.0137841, 0, 0, 0, 0.00324913, -0.00566062, 0.0222755, -0.000505446)
+material_override = SubResource("StandardMaterial3D_7osk1")
+mesh = SubResource("BoxMesh_j8txu")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.00915354, 0, 0, 0, 0.0579258, 0, 0, 0, 0.0121842, 0, 0.0126461, 0)
+shape = SubResource("BoxShape3D_dxixt")
+
+[node name="SubViewport" type="SubViewport" parent="Area3D"]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar3D" parent="Area3D/SubViewport" instance=ExtResource("3_pu2yg")]
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(0.0188733, 0, 0, 0, 0.0328192, 0, 0, 0, 0.0162456, 0, 0.128758, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_xkh8w")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_n4388")
+autoplay = true
+max_distance = 5.0
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dceu0flu3mljx"
+path="res://.godot/imported/Epic Motivational Music - Born A Legend.mp3-006b64a0309fa88641312448f867704c.mp3str"
+
+[deps]
+
+source_file="res://Epic Motivational Music - Born A Legend.mp3"
+dest_files=["res://.godot/imported/Epic Motivational Music - Born A Legend.mp3-006b64a0309fa88641312448f867704c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

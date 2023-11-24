@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkd1phia5dso0"]
+
+[ext_resource type="FontFile" uid="uid://dvwrrke6xi6ts" path="res://MedievalSharp-Regular.ttf" id="1_be4pe"]
+[ext_resource type="Texture2D" uid="uid://btvc623js58ho" path="res://depositphotos_2055215-stock-illustration-papyrus-paper-background.jpg" id="1_j7fib"]
+[ext_resource type="Script" path="res://win.gd" id="1_os2nq"]
+[ext_resource type="AudioStream" uid="uid://dl18nh6u6rskw" path="res://La Marche Nuptiale (Wedding March) - musique de marriage - Mendelssohn.mp3" id="3_7yfaj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8cm0y"]
+font = ExtResource("1_be4pe")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_os2nq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -188.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j7fib")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = 55.0
+offset_right = 150.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPrincipal" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_be4pe")
+text = "Retourner au menu principal"
+
+[node name="LeaveGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_be4pe")
+text = "Quitter"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -478.0
+offset_top = 197.0
+offset_right = 507.0
+offset_bottom = 305.0
+grow_horizontal = 2
+text = "Bravo. Vous n'avez fait qu'une bouchée de Rankozor et êtes parvenu à libérer
+ la princesse Jérômiette. De cette sublime preuve d'amour découlera deux
+               merveilleux enfants dénommés Quentinours et Maxilette. "
+label_settings = SubResource("LabelSettings_8cm0y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7yfaj")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/MenuPrincipal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="VBoxContainer/LeaveGame" to="." method="_on_leave_game_pressed"]

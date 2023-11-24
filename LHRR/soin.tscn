@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bohkahb862uev"]
+
+[ext_resource type="Script" path="res://soin.gd" id="1_63oag"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f8wl"]
+albedo_color = Color(0.898039, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wsf2r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3t3r5"]
+albedo_color = Color(0.898039, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x3qcd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fu56l"]
+radius = 0.217912
+
+[node name="Soin" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369708, 0.403246, 0)
+script = ExtResource("1_63oag")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.299999, 0.000267057, 4.7768e-05, -0.000801027, 0.0999996, -0.000100972, -0.000144113, 0.000100844, 0.0999999, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_6f8wl")
+mesh = SubResource("BoxMesh_wsf2r")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.00103671, -0.0999994, 0, 0.299998, 0.000345571, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_3t3r5")
+mesh = SubResource("BoxMesh_x3qcd")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_fu56l")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

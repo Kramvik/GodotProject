@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck63a2rfkuybp"]
+
+[ext_resource type="Script" path="res://epee.gd" id="1_vh6gn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1b00"]
+albedo_color = Color(0.705882, 0.694118, 0.65098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jvas1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oiq2"]
+albedo_color = Color(0.705882, 0.694118, 0.65098, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_55wrq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbqke"]
+albedo_color = Color(0.952941, 0.0745098, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_65uhd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fegu0"]
+albedo_color = Color(0.443137, 0.203922, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ce32t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ty6hx"]
+size = Vector3(0.117634, 0.0440915, 0.784511)
+
+[node name="epee" type="RigidBody3D" groups=["epee"]]
+transform = Transform3D(0.00249584, 0.999997, 0, -0.999997, 0.00249584, 0, 0, 0, 1, 0, 0, 0)
+gravity_scale = 0.0
+script = ExtResource("1_vh6gn")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0649892, -0.000455941, 0, 0.00118545, 0.0249958, 0, 0, 0, 1.12, 0, 0, -0.584451)
+material_override = SubResource("StandardMaterial3D_u1b00")
+mesh = SubResource("BoxMesh_jvas1")
+skeleton = NodePath("")
+
+[node name="Bout" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0649999, -4.7952e-06, 5.10446e-05, -0.000132732, -0.00234823, 0.0249968, 0, -0.149982, -0.000391373, 0, 0, -1.21273)
+material_override = SubResource("StandardMaterial3D_7oiq2")
+mesh = SubResource("PrismMesh_55wrq")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.29, 7.27596e-12, -3.93403e-09, -1.16415e-10, 0.045, 0, 2.53526e-08, 0, 0.045, 0, 0, -0.027399)
+material_override = SubResource("StandardMaterial3D_sbqke")
+mesh = SubResource("BoxMesh_65uhd")
+skeleton = NodePath("")
+
+[node name="Garde" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.06, -2.72848e-12, -3.63798e-12, 0, 0.00211845, 0.019999, 0, -0.209989, 0.000201757, -0.00116704, -0.00474542, 0.10634)
+material_override = SubResource("StandardMaterial3D_fegu0")
+mesh = SubResource("CapsuleMesh_ce32t")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["epee"]]
+transform = Transform3D(-0.785, -7.25267e-08, 0, 1.18278e-07, -0.485, 0, 0, 0, 1.06, 0, 0, -0.886958)
+shape = SubResource("BoxShape3D_ty6hx")

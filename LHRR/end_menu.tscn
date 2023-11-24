@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://foggm0l7s7j5"]
+
+[ext_resource type="Script" path="res://end_menu.gd" id="1_bdqs0"]
+[ext_resource type="Texture2D" uid="uid://b35em2164xdlw" path="res://8-9x3HeWNkh4KxUe4.png" id="1_eq8ud"]
+[ext_resource type="FontFile" uid="uid://dvwrrke6xi6ts" path="res://MedievalSharp-Regular.ttf" id="3_jskc2"]
+[ext_resource type="AudioStream" uid="uid://dh2xy7v0pi7sb" path="res://Fantasy Music - Victory or Death.mp3" id="4_q2xy7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6evhm"]
+font = ExtResource("3_jskc2")
+font_size = 90
+font_color = Color(0.0745098, 0.729412, 0.819608, 1)
+
+[node name="EndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 89.0
+offset_right = 6.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bdqs0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -91.0
+offset_right = -6.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eq8ud")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -44.0
+offset_right = 124.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rejouer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Quitter")
+theme_override_fonts/font = ExtResource("3_jskc2")
+theme_override_font_sizes/font_size = 30
+text = "Rejouer"
+
+[node name="Quitter" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Rejouer")
+theme_override_fonts/font = ExtResource("3_jskc2")
+theme_override_font_sizes/font_size = 30
+text = "Quitter"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -171.0
+offset_right = 330.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vous êtes mort"
+label_settings = SubResource("LabelSettings_6evhm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q2xy7")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Rejouer" to="." method="_on_rejouer_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]

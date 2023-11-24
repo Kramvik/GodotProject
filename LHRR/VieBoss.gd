@@ -1,0 +1,6 @@
+extends Label
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	self.text = "PV restants de Rankozor : " + str(get_parent().vie_boss) + " %"

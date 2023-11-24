@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl18nh6u6rskw"
+path="res://.godot/imported/La Marche Nuptiale (Wedding March) - musique de marriage - Mendelssohn.mp3-c5df23707a52a9731ddf1483f2fad52c.mp3str"
+
+[deps]
+
+source_file="res://La Marche Nuptiale (Wedding March) - musique de marriage - Mendelssohn.mp3"
+dest_files=["res://.godot/imported/La Marche Nuptiale (Wedding March) - musique de marriage - Mendelssohn.mp3-c5df23707a52a9731ddf1483f2fad52c.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

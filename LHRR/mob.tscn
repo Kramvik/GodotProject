@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3gm3xynkcl6"]
+
+[ext_resource type="PackedScene" uid="uid://bphb7m2kc83t5" path="res://mobs.tscn" id="1_ipybl"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_su132"]
+viewport_path = NodePath("Area3D/SubViewport")
+
+[node name="Mob" instance=ExtResource("1_ipybl")]
+
+[node name="Sprite3D" parent="Area3D" index="8"]
+texture = SubResource("ViewportTexture_su132")

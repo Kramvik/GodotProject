@@ -1,0 +1,186 @@
+[gd_scene load_steps=15 format=3 uid="uid://d1yjkiva5mg0p"]
+
+[ext_resource type="PackedScene" uid="uid://bxungw7glr712" path="res://hero.tscn" id="1_sqtgf"]
+[ext_resource type="Script" path="res://principale.gd" id="1_wb6xn"]
+[ext_resource type="PackedScene" uid="uid://bphb7m2kc83t5" path="res://mobs.tscn" id="2_7qbdg"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_nx42i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sx6bd"]
+albedo_color = Color(0, 0.352941, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b1rc1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ukmp"]
+albedo_color = Color(0.192157, 0.0901961, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rkxlt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mt4dn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruefd"]
+albedo_color = Color(0.192157, 0.0901961, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hpnvk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cw1j"]
+albedo_color = Color(0.192157, 0.0901961, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2i861"]
+
+[sub_resource type="Curve3D" id="Curve3D_ad0ou"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -8.75865, 0.584177, 59.2713, 0, 0, 0, 0, 0, 0, 6.92613, 0.129519, 58.7747, 0, 0, 0, 0, 0, 0, 6.55037, 0.758845, 72.7867, 0, 0, 0, 0, 0, 0, -8.79014, 1.1975, 73.2322, 0, 0, 0, 0, 0, 0, -8.52086, 0.816288, 59.0177),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Principale" type="Node3D"]
+script = ExtResource("1_wb6xn")
+mob_scene = ExtResource("2_7qbdg")
+
+[node name="hero" parent="." instance=ExtResource("1_sqtgf")]
+transform = Transform3D(0.999396, 0, -0.0347425, 0, 1, 0, 0.0347425, 0, 0.999396, 1.0237, -0.392669, 87.7045)
+
+[node name="Environnement" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environnement"]
+transform = Transform3D(225.07, 0, 0, 0, 225.07, 0, 0, 0, 225.07, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_nx42i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environnement/CollisionShape3D"]
+transform = Transform3D(0.481005, 0, 0, 0, 0.481005, 0, 0, 0, 0.481005, -0.000304204, -5.69653e-05, -1.57998e-05)
+material_override = SubResource("StandardMaterial3D_sx6bd")
+mesh = SubResource("PlaneMesh_b1rc1")
+skeleton = NodePath("")
+
+[node name="Grotte" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.645, 0, 0, 0, 5.145, 0, 0, 0, 9.335, 2.9028, 2.53754, 85.6491)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.404493, 0, -7.27124, 0, 13.565, 0, 0.502405, 0, 5.85417, 6.80068, 5.39667, 78.3001)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.404493, 0, -7.27124, 0, 13.76, 0, 0.502405, 0, 5.85417, -7.32301, 5.1572, 54.1922)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.644207, 0, 0.462685, 0, 12.92, 0, -0.0319692, 0, 9.32353, 10.3507, 5.73669, 70.8188)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.644207, 0, 0.462685, 0, 12.325, 0, -0.0319692, 0, 9.32353, 9.87653, 6.03771, 61.4808)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.644207, 0, 0.462685, 0, 12.575, 0, -0.0319692, 0, 9.32353, -10.2696, 5.68137, 70.8188)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.644207, 0, 0.462685, 0, 12.49, 0, -0.0319692, 0, 9.32353, -10.7088, 5.72362, 61.9142)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(-0.388638, 0, -7.45016, 0, 12.725, 0, 0.514767, 0, -5.62471, -6.45681, 5.61361, 78.3319)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(-0.388638, 0, -7.45016, 0, 12.825, 0, 0.514767, 0, -5.62471, 5.92906, 5.74561, 53.8674)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.0063651, 0, -7.65468, 0, 7.88, 0, 0.699971, 0, 0.0696069, -1.1929, 8.47616, 51.2235)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.645, 0, 0, 0, 5.145, 0, 0, 0, 9.335, -2.53386, 2.53754, 85.6491)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.00562863, -5.1448, 0, 0.644975, 0.0448982, 0, 0, 0, 9.335, 0.0720096, 4.79676, 85.6491)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.00562863, -6.21976, -1.49701e-10, 0.0302364, 0.00254461, -5.54889, 0.644266, 0.0542195, 0.260418, 0.0720096, 2.21387, 89.9718)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(0.00741758, -6.41476, -6.87136e-10, 0.0398474, 0.00262445, -7.4518, 0.849033, 0.0559193, 0.349733, 0.0720096, 8.72892, 81.1311)
+material_override = SubResource("StandardMaterial3D_6ukmp")
+mesh = SubResource("BoxMesh_rkxlt")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(1.49, 0, 0, 0, 5.32, 0, 0, 0, 0.87, 1.7702, 2.40195, 51.2315)
+mesh = SubResource("BoxMesh_mt4dn")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(1.49, 0, 0, 0, 5.32, 0, 0, 0, 0.87, -3.01536, 2.40195, 51.2315)
+mesh = SubResource("BoxMesh_mt4dn")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(-0.00884178, 5.31991, 0, -1.48997, -0.0315693, 0, 0, 0, 0.87, -0.505495, 4.32727, 51.2309)
+mesh = SubResource("BoxMesh_mt4dn")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(19.9773, 0, 0.823943, 0, 0.975, 0, -0.841837, 0, 19.5526, -0.229656, 12.1222, 66.7025)
+material_override = SubResource("StandardMaterial3D_ruefd")
+mesh = SubResource("BoxMesh_hpnvk")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(6.77, 0, 0, 0, 0.715, 0, 0, 0, 4.445, 0, 12.2856, 78.5044)
+material_override = SubResource("StandardMaterial3D_6cw1j")
+mesh = SubResource("BoxMesh_2i861")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(5.93, 0, 0, 0, 0.715, 0, 0, 0, 6.745, -0.701799, 12.2654, 54.1834)
+material_override = SubResource("StandardMaterial3D_6cw1j")
+mesh = SubResource("BoxMesh_2i861")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(3.48133, 0, 7.18552, 0, 0.66, 0, -4.76344, 0, 5.2515, 4.00195, 12.2674, 55.878)
+material_override = SubResource("StandardMaterial3D_6cw1j")
+mesh = SubResource("BoxMesh_2i861")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(3.6251, 0, -7.02189, 0, 0.66, 0, 4.65496, 0, 5.46836, -5.77195, 12.2674, 56.2907)
+material_override = SubResource("StandardMaterial3D_6cw1j")
+mesh = SubResource("BoxMesh_2i861")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(4.29798, 0, 4.86478, 0, 0.685, 0, -5.41707, 0, 3.85979, -3.88561, 12.2856, 76.2178)
+material_override = SubResource("StandardMaterial3D_6cw1j")
+mesh = SubResource("BoxMesh_2i861")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Grotte"]
+transform = Transform3D(-4.57899, 0, 5.90799, 0, 0.56, 0, -5.1215, 0, -5.28217, 4.60956, 12.4438, 75.8604)
+material_override = SubResource("StandardMaterial3D_6cw1j")
+mesh = SubResource("BoxMesh_2i861")
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_ad0ou")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+transform = Transform3D(0.0316471, 0.0289461, -0.99908, 1.86264e-09, 0.999581, 0.0289606, 0.999499, -0.00091652, 0.0316339, -8.75865, 0.584177, 59.2713)
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
